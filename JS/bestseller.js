@@ -185,7 +185,7 @@ function createCard(book) {
                         <span class="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">${book.soldCount} satıldı</span>
                         <img src="${book.img}" alt="${book.name}" class="w-full h-64 object-cover rounded group-hover:scale-105 transition" />         
                     </div>
-                    <a href="../details.htm?id=${book.id}" class="font-semibold text-sm mb-1 group-hover:text-red-600">${book.name}</a>
+                    <a href="../HTML/details.htm?id=${book.id}" class="font-semibold text-sm mb-1 group-hover:text-red-600">${book.name}</a>
                     <p class="text-gray-600 text-xs mb-2">${book.author || ''}</p>
                     <div class="flex justify-between items-center">
                         <div>
