@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Əlavə edilmişlər - Libraff</title>
+        <!-- Fav Icon Link -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <!-- Output CSS Link -->
+    <link rel="stylesheet" href="../output.css" />
+    <!-- FlowBite CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Side Bar üçün Style -->
+    <style>
+        .sidebar-transition {
+            transition: transform 300ms ease-in-out;
+        };
+    </style>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="../style.css"/>
+    <!-- Swiper JS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="hidden xl:flex ">
+            <div class="container flex items-center justify-center mx-auto gap-5 pt-5">
+                <div onclick="goMainPage()" class="px-4 w-[20%] cursor-pointer">
+                    <img src="../assets/img/logo.png" class="w-[100%]" alt="libraff log desktop" />
+                </div>
+                <div>
+                    <button
+                        class="rounded-full border px-4 py-2 bg-[#EF3340] text-white font-semibold text-sm flex items-center gap-2"
+                        onclick="handlePopup(true)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h6v6H4V6zm10 0h6v6h-6V6zM4 16h6v6H4v-6zm10 0h6v6h-6v-6z" />
+                        </svg>
+                        Kataloq
+                    </button>
+                    <!-- Categories Div Area start  !!! -->
+                    <div class="fixed bg-black/50 inset-0 z-10 translate-[-50%] transform hidden" id="outset">
+                        <div class="bg-white w-[90vw] h-[95dvh] relative top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]  rounded-md"
+                            id="popUp">
+                            <div class="flex h-full">
+                                <!-- Birinci Qutu Sol -->
+                                <div id="categoryDiv1" class="w-[25%]">
+                                    <ul id="categSec" class="flex flex-col gap-5"></ul>
+                                </div>
+                                <!-- İkinci Qutu Sol -->
+                                <div id="categoryDiv2" class="w-[25%] bg-[#F5F5F7]">
+                                    <ul id="subCatSec" class="flex flex-col gap-5"></ul>
+                                </div>
+                                <!-- Üçüncü Qutu Sağ -->
+                                <div id="categoryDiv3" class="w-[50%]">
+                                    <ul id="subSubCatSec" class="flex flex-col gap-5"></ul>
+                                </div>
+                                <div class="text-right px-2 py-2">
+                                    <button class="py-2 px-3 rounded-full bg-red-600 text-white cursor-pointer"
+                                        onclick="handlePopup(false)"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Categories Div  End !!! -->
+                </div>
+                <div class="relative">
+                    <input type="text" class="border w-[600px] rounded-full py-2 px-4"
+                        placeholder=" Növbəti kitabınızı axtarın" />
+                    <img src="../assets/img/magnifying-glass.svg" class="w-5 absolute right-5 py-3 top-0 cursor-pointer"
+                        alt="magnify glass svg" />
+                </div>
+                <div>
+                    <select class="px-10 cursor-pointer">
+                        <option>AZ</option>
+                        <option>RU</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="font-semibold bg-[#F4F6FC] px-5 py-3 rounded-full flex items-center gap-2">
+                        <i class="fa-solid fa-circle-user" id="userIcon"></i>
+                        Hesabım
+                        <i class="fa-solid fa-angle-down" id="dropDownIcon"></i>
+                    </button>
+                </div>
+
+                <!-- User login Div Area Start -->
+                <div class="relative hidden" id="logDiv">
+                    <div class="absolute right-[60px] border shadow top-6 w-[300px] rounded-lg bg-[#fff] z-10">
+                        <p class="text-[0.8rem] text-[#2B3243] font-semibold leading-10 px-4">Sifarişlər</p>
+                        <p class="text-[0.8rem] text-[#2B3243] font-semibold px-4">Qaytarma sorğuları</p>
+                        <p class="text-[0.8rem] text-[#2B3243] font-semibold leading-10 px-4">Seçilmişlər</p>
+                        <div class="bg-[#F5F5F7] px-5 py-3">
+                            <p class="text-[0.8rem] text-[#767682]">Sifarişi izləmək</p>
+                            <div class="flex py-2">
+                                <input type="text"
+                                    class="py-1 w-52 px-2 rounded-md border border-[#adadad] hover:border-red-700 hover:shadow-xl"
+                                    placeholder="  Sifariş nömrəsi/E-poçt" />
+                                <i
+                                    class='fas fa-caret-right text-gray-400 border-[#adadad] rounded-md border-2 pt-2 px-2 text-lg cursor-pointer'></i>
+                            </div>
+                            <div class="flex justify-between items-center pt-3">
+                                <button class="text-white bg-black  py-2 px-4 rounded-full font-semibold">Daxil
+                                    ol</button>
+                                <button
+                                    class="text-white bg-[#EF3340] py-2 px-4 rounded-full font-semibold">Qeydiyyat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="flex gap-x-3 items-center relative">
+                    <span class="absolute  px-2 bg-[red] text-white font-bold rounded-full top-[-12px] left-[-18px]" id="favBadge"></span>
+                    <a href="../HTML/fav.htm" class="fa-regular fa-heart text-xl cursor-pointer"></a>
+                    <span class="absolute bg-[red] text-white font-bold py-0 px-2 right-[-22px] bottom-4 rounded-full" id="basketBadge"></span>
+                    <a href="../HTML/basket.htm" class="fa-solid fa-bag-shopping text-xl cursor-pointer" id="basketIcon"></a>
+                </div>
+                <!-- User login Div Area End -->
+
+                <!-- Basket area start -->
+                <div class="relative hidden" id="basketDiv">
+                    <div class="absolute w-[300px] right-2 top-7 bg-white shadow  rounded-xl z-10">
+                        <div class="flex justify-between items-center py-2 px-2">
+                            <p class="text-[#0F172A] font-semibold text-sm">Səbətdəki məhsullar:</p>
+                            <i class="fa-solid fa-xmark text-[#767682] cursor-pointer" id="closeBasket"></i>
+                        </div>
+                        <hr />
+                        <div class="text-center py-10 text-[#767682] font-semibold">
+                            <p>Səbət boşdur</p>
+                        </div>
+                        <div class="bg-[#F4F6FC] py-4 text-center text-[#0F172A] text-sm font-semibold">
+                            <button class="border-2 border-[#EF3340] rounded-full px-2 py-2 w-[80%]">Səbət</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basket area end -->
+            </div>
+        </nav>
+
+        <!-- Mobile Version Navbar -->
+        <div class="flex gap-x-10 flex-wrap px-4 py-3 xl:hidden overflow-hidden">
+            <div class="flex items-center">
+                <button id="menuBtn" class="mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div onclick="goMainPage()" class="text-libraff font-bold text-2xl">
+                    <img src="../assets/img/logo.png" alt="libraff logo mobile" class="max-w-52" />
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a href="#" class="p-1 rounded-full border border-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                </a>
+                <a href="#" class="p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                </a>
+            </div>
+            <!-- Side Bar -->
+            <div id="sideBar"
+                class="fixed top-0 left-0 h-[100dvh] w-full bg-white shadow-lg z-20 transform -translate-x-full sidebar-transition">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+                        <button type="button" data-dropdown-toggle="language-dropdown-menu"
+                            class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm rounded-lg cursor-pointer">
+                            <img src="../assets/img/flag-for-flag-azerbaijan-svgrepo-com.svg" class="w-10 px-2" alt="">
+                            Azərbaycan (AZE)
+                        </button>
+                        <!-- Dropdown -->
+                        <div class="z-50 hidden my-4 text-base list-none pl-5 w-52" id="language-dropdown-menu">
+                            <ul class="py-2 font-medium" role="none">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 text-sm border" role="menuitem">
+                                        <div class="inline-flex items-center">
+                                            <?xml version="1.0" encoding="utf-8"?>
+                                            <svg class="w-5" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                                class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet">
+                                                <path fill="#CE2028" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4v-4h36v4z">
+                                                </path>
+                                                <path fill="#22408C" d="M0 13h36v10H0z"></path>
+                                                <path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v4h36V9a4 4 0 0 0-4-4z">
+                                                </path>
+                                            </svg>
+                                            <p class="px-2">Russian (RU)</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button id="closeBtn" class="p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="px-3 pt-10">
+                    <p class="flex justify-between items-center text-gray-400 ">Əsas keçidlər <span><img
+                                src="https://symbl-cdn.com/i/webp/5d/6c17109e9658507f1210ebb28fa721.webp"
+                                alt="hyper-minus" class="w-10"></span></p>
+                    <hr class="mt-5" />
+                    <a href="../HTML/bestsellers.htm" class="leading-10 font-semibold">Bestseller</a>
+                    <a href="../HTML/discounts.htm" class="leading-10 font-semibold">Endirimlər</a>
+                    <a href="../HTML/authors.htm" class="leading-10 font-semibold">Müəlliflər</a>
+                    <a href="../HTML/classic.htm" class="leading-10 font-semibold">Klassiklər</a>
+                    <hr class="" />
+                </div>
+                <div class="px-3">
+                    <p class="flex justify-between items-center text-gray-400 ">Kataloq <span><img
+                                src="https://symbl-cdn.com/i/webp/5d/6c17109e9658507f1210ebb28fa721.webp"
+                                alt="hyper-minus" class="w-10"></span></p>
+                    <hr class="mt-5" />
+                    <p class="font-semibold">Bütün kitablar <span
+                            class="uppercase bg-red-600 text-xs text-white rounded-full px-2 py-1 mx-2">bütün
+                            kitablar</span></p>
+                    <p class="font-semibold">Bədii ədəbiyyat <span></span></p>
+                    <p class="font-semibold">Qeyri-bədii ədəbiyyat <span></span></p>
+                    <p class="font-semibold">Klassiklər</p>
+                    <p class="font-semibold">Detektiv</p>
+                    <p class="font-semibold">Romanlar & Novellar</p>
+                    <p class="font-semibold">Elmi-Fantastika & Fantaziya</p>
+                    <p class="font-semibold">Şəxsi İnkişaf</p>
+                    <p class="font-semibold">Psixologiya</p>
+                    <p class="font-semibold">Biznes & İqtisadiyyat</p>
+                    <hr class="mt-5" />
+                </div>
+            </div>
+            <div id="mobInpSearch" class="px-1 py-3 relative">
+                <input type="text" placeholder=" Növbəti kitabınızı axtarın"
+                    class="border py-2 px-4  rounded-full w-[70vw]" />
+                <div class="pr-5 absolute right-[0%] top-[20%]">
+                    <img src="../assets/img/magnifying-glass.svg" class="w-6 py-2" alt="search icon" />
+                </div>
+            </div>
+
+    </header>
+    <main>
+        <h2 class="text-[2rem] text-[#0f172a] font-semibold px-6 pt-20 pb-5 capitalize">əlavə edilmişlər</h2>
+        <div id="favSec" class="container flex flex-wrap gap-4 items-center px-5 py-10 justify-center">
+
+        </div>
+
+        <div class="bg-[#F5F5F7] p-5 rounded-xl mx-5 my-4">
+            <div onclick="goMainPage()" class="capitalize bg-[#333] cursor-pointer text-center text-white font-semibold py-2 px-4 rounded-full w-full xl:w-[12%] lg:w-[12%]">
+                <h5>alışverişə davam et</h5>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-[#F8FAFC] p-5">
+        <div class="container flex flex-wrap justify-between mx-auto gap-x-10 gap-y-10 p-[20px_0_0_0]">
+            <div class="cursor-pointer">
+                <h6 class="text-[#0f172abd] font-semibold  hover:underline">Hesabım</h6>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Daxil ol</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Qeydiyyatdan keç</p>
+            </div>
+            <div class="cursor-pointer">
+                <h6 class="text-[#0f172abd] font-semibold  hover:underline">Şirkət</h6>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Haqqımızda</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Əlaqə</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Vakansiyalar</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Sayt xəritəsi</p>
+            </div>
+            <div class="cursor-pointer">
+                <h6 class="text-[#0f172abd] font-semibold  hover:underline">Müştəri xidməti</h6>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Dəyişdirilmə və qaytarılma</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Ödəniş və çatdırılma</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Sİfarişiniz haqqında</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Seçilmişlər</p>
+            </div>
+            <div class="cursor-pointer">
+                <h6 class="text-[#0f172abd] font-semibold  hover:underline">Əlaqə</h6>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">Bakı, Badamdar qəs., Mikayıl Müşfiq küç. 1c (Badamdar Estates)</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">+994-50-290-44-96</p>
+                <p class="py-2 text-xs text-[#1E1E1E]  hover:underline">B.e.-B. 9.00 - 18.00</p>
+                <p class="underline py-2 text-xs text-[#1E1E1E]  hover:underline">online@libraff.az</p>
+                <p class="underline py-2 text-xs text-[#1E1E1E]  hover:underline">Xəritədə bax</p>
+            </div>
+        </div>
+        <div class="py-10 px-20">
+            <p>&copy; 2017-205 Libraff.</p>
+        </div>
+    </footer>
+    <script src="../JS/fav.js" type="module"></script>
+    <!-- FlowBite CDN Script -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!--Swiper JS Module Script  -->
+    <script src="JS/app.js" type="module"></script>
+    <!-- Swiper CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Tailwind CSS CDN JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>

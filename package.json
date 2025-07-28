@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "dev": "npx tailwindcss -i ./input.css -o ./output.css --watch"
+  },
+  "dependencies": {
+    "@preline/theme-switch": "^3.0.0",
+    "nouislider": "^15.8.1",
+    "preline": "^3.0.1",
+    "sweetalert2": "^11.22.2",
+    "swiper": "^11.2.6",
+    "ui": "^0.2.4"
+  }
+}

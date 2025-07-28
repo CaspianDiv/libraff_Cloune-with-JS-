@@ -1,0 +1,203 @@
+
+.category:hover {
+    background: #F5F5F7;
+    color: #EF3340;
+};
+/* Swiper Js Styles */
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  };
+
+  /* Əlavə pagination stillər */
+
+ .swiper-pagination{
+    position: relative;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+ }
+
+ .swiper-pagination-bullet{
+    width: 8px;
+    height: 8px;
+    background: #d0d0d0 !important;
+    opacity: 1 !important;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    margin: 0;
+ }
+
+ .swiper-pagination-bullet-active{
+    width: 20px !important;
+    border-radius: 10px !important;
+    background: #a0a0a0 !important;
+ }
+
+ .swiper-pagination-bullet:hover{
+    background: #fa1824 !important;
+    cursor: pointer;
+ }
+
+ .carousel-container{
+   width: 100%;
+   margin: 20px  auto;
+   overflow: hidden;
+ }
+
+ .carousel-wrapper{
+   display: flex;
+   align-items: center;
+   position: relative;
+ }
+
+ .carousel-items{
+   display: flex;
+ transition: transform 0.5s ease-in-out;
+ }
+
+ .carousel-item{
+   min-width: 200px;
+   padding: 10px;
+   text-align: center;
+   margin: 0 10px;
+ }
+.carousel-item img{ width: 100%; }
+ .carousel-button{
+   position: absolute;
+   z-index: 10;
+   top: 50%;
+   transform: translateY(-50%);
+   background: rgba(255, 0, 0, 0.7);
+   color: white;
+   border: 1px solid #ccc;
+   cursor: pointer;
+   padding: 10px 20px;
+   margin: 0 20px;
+   border-radius: 50%;
+ }
+
+.prev{
+   left: 0;
+} 
+.next{
+   right: 0;
+};
+
+/* Sol kateqoriya menyu stilləri */
+#leftCateg {
+    width: 300px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+    position: sticky;
+    top: 20px;
+}
+/* Sol Kateqoriya Menyusu Scroll Bar Stilləri */
+
+#leftCateg::-webkit-scrollbar{
+  width: 6px;
+};
+#leftCateg::-webkit-scrollbar-track{
+  background: #f1f1f1;
+};
+#leftCateg::-webkit-scrollbar-thumb{
+  background: #c1c1c1;
+  border-radius: 3px
+};
+#leftCateg::-webkit-scrollbar-thumb:hover{
+  background: #a1a1a1;
+};
+/* Kateqoriya elementlərinə hover effekti  */
+
+.category-submenu, .sub-menu {
+  transition: all 0/3 ease;
+};
+
+/* 0x iconları üçün dönmə animasiyası  */
+
+.fas.fa-chevron-right{
+  transition: transform 0.3 ease;
+};
+
+.rotate-90{
+  transform: rotate(90deg);
+};
+
+
+/* Aktiv kateqoriya stilləri */
+
+.active-category{
+  background: #f3f3f6;
+  border-left: 3px solid #ef4444;
+};
+
+/* Range input üçün xüsusi stillər */
+input[type="range"] {
+    pointer-events: auto !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ef3340;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ef3340;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    pointer-events: auto;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: transparent;
+}
+
+input[type="range"]::-moz-range-track {
+    background: transparent;
+}
+
+/* Hover effektləri */
+input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(239, 51, 64, 0.3);
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(239, 51, 64, 0.3);
+        }
+
+/* Responsive Dizayn  */
+
+@media (max-width: 768px ) {
+  #leftCateg {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  };
+};
+
+
+
+
+

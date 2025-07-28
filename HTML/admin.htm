@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Panel</title>
+    <!-- Fav Icon Link -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Output CSS Link -->
+         <link rel="stylesheet" href="./output.css" />
+    <!-- FontAwesome CDN -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="bg-[#421414]">
+        
+
+        <main>
+            <!-- Add Modal Component Start -->
+              <dh-component>
+                    <div class="py-12 bg-[#808080aa] h-[200vh] transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0" id="modal">
+                        <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-[900px]">
+                            <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
+                         <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                width="50" viewBox="0 0 459.319 459.319"
+                                xml:space="preserve">
+                            <g>
+                                <path d="M94.924,366.674h312.874c0.958,0,1.886-0.136,2.778-0.349c0.071,0,0.13,0.012,0.201,0.012
+                                    c6.679,0,12.105-5.42,12.105-12.104V12.105C422.883,5.423,417.456,0,410.777,0h-2.955H114.284H94.941
+                                    c-32.22,0-58.428,26.214-58.428,58.425c0,0.432,0.085,0.842,0.127,1.259c-0.042,29.755-0.411,303.166-0.042,339.109
+                                    c-0.023,0.703-0.109,1.389-0.109,2.099c0,30.973,24.252,56.329,54.757,58.245c0.612,0.094,1.212,0.183,1.847,0.183h317.683
+                                    c6.679,0,12.105-5.42,12.105-12.105v-45.565c0-6.68-5.427-12.105-12.105-12.105s-12.105,5.426-12.105,12.105v33.461H94.924
+                                    c-18.395,0-33.411-14.605-34.149-32.817c0.018-0.325,0.077-0.632,0.071-0.963c-0.012-0.532-0.03-1.359-0.042-2.459
+                                    C61.862,380.948,76.739,366.674,94.924,366.674z M103.178,58.425c0-6.682,5.423-12.105,12.105-12.105s12.105,5.423,12.105,12.105
+                                    V304.31c0,6.679-5.423,12.105-12.105,12.105s-12.105-5.427-12.105-12.105V58.425z"/>
+                            </g>
+                            </svg>
+                                <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 py-5">Create New Book</h1>
+                            <div id="form">
+                                <label class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Name</label>
+                                <input  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter Book Name" />
+                                 <label class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Author</label>
+                                <input  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter Book Author" />
+                                 <label class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Content</label>
+                                <input  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter Book Content" />
+                                <label  class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Image (URL)</label>
+                                <div class="relative mb-5 mt-2">
+                                    <div class="absolute text-gray-600 flex items-center px-4 border-r h-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 512 512">
+                                            <path d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/>
+                                        </svg>
+                                    </div>
+                                    <input  class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"/>
+                                </div>
+                                <label  class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Price</label>
+                                <div class="relative mb-5 mt-2">
+                                    <input  class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" type="number" placeholder="Enter Book Price" />
+                                </div>
+                                <label class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Book Language</label>
+                                <input  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter Book Language" />
+                                <div class="relative mb-5 mt-2">
+                                    <div class="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                            <polyline points="11 12 12 12 12 16 13 16"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="flex items-center justify-start w-full">
+                                    <button onclick="handlePost()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">Submit</button>
+                                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" onclick="modalHandler()">Cancel</button>
+                                </div>
+                                <button class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onclick="modalHandler()" aria-label="close modal" role="button">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <line x1="18" y1="6" x2="6" y2="18" />
+                                        <line x1="6" y1="6" x2="18" y2="18" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </dh-component>
+            <!-- Add Modal Component End -->
+
+            <!-- Edit Modal Component Start -->
+           <div class="fixed bg-black/50 inset-0 z-10 translate-[-50%] transform" id="outsetModal">
+                <div id="editModal" class="w-[450px] fixed top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] bg-[#8B0000] p-[30px_10px] rounded-xl flex flex-col gap-3 items-center justify-center">
+                 <h2 class="capitalize text-[2rem] font-semibold text-white">edit book</h2>
+                 <div class="absolute top-3 right-3">
+                        <button onclick="handleModal(false)" class="bg-[#ef3340] py-2 px-4 rounded-full shadow-2xl hover:bg-[#ef333fec]">
+                            <i class="fa-solid fa-xmark text-white"></i>
+                        </button>
+                    </div>
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Name" type="text" />
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Author" type="text" />
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Content" type="text" />
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Img URL" type="text" />
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Price" type="text" />
+                <input class="w-full p-3 rounded-xl focus:ring-4 focus:ring-[#ef3340] outline-none" placeholder=" Book Language" type="text" />
+                <button onclick="handleEdit()" class="w-full p-3 rounded-xl capitalize bg-[#ef3340] shadow-xl hover:bg-[#ef333fc5] text-white font-semibold text-xl">edit</button>
+             </div>
+           </div>
+            <!-- Edit Modal Component End -->
+        
+            <div class="px-10 pt-10 flex justify-between items-center">
+                <h1 class="capitalize text-2xl px-20 font-semibold text-white">admin panel</h1>
+                <button onclick="modalHandler(true)" class="bg-[#8B0000] mr-16 capitalize text-white font-semibold text-[1.2rem] px-5 py-2 rounded-xl hover:bg-[#8b0000bf] hover:shadow-2xl hover:shadow-[#ff0000db]">add book</button>
+            </div>
+           <div class="container mx-auto pt-10">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-xs">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col class="w-24">
+                            </colgroup>
+                            <thead class="bg-[#8B0000] text-white font-semibold">
+                                <tr class="text-left">
+                                    <th class="p-3 border">Name</th>
+                                    <th class="p-3 border">Author</th>
+                                    <th class="p-3 border">Content</th>
+                                    <th class="p-3 border">Img</th>
+                                    <th class="p-3 border">Price</th>
+                                    <th class="p-3 border">Language</th>
+                                    <th class="p-3 border">Sold Count, Stock Count, View</th>
+                                    <th class="p-3 border">Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+           </div>
+           <!-- Admin Panel Table Area End -->  
+        </main>
+        <script src="js/admin.js" type="module"></script>
+           <!-- Tailwind CSS CDN JS -->
+         <script src="https://cdn.tailwindcss.com"></script>
+         <!-- Sweet Alert Notification JS -->
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
