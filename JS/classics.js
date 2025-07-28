@@ -273,7 +273,7 @@ function printClassicBooks(booksData) {
                     <img src="${book.img}" alt="${book.name}" class="object-cover w-full" />
                 </div>
                 <div class="p-4">
-                        <a href="../details.htm?id=${book.id}" class="font-semibold hover:underline text-lg mb-1 truncate" title="${book.name}">${book.name}</a>
+                        <a href="../HTML/details.htm?id=${book.id}" class="font-semibold hover:underline text-lg mb-1 truncate" title="${book.name}">${book.name}</a>
                         <p class="tetx-gray-600 text-sm mb-2 title="author"">${book.author}</p>
                         <div>
                             <button onclick="addBasket('${book.id}')" class="bg-[#ef3340] text-white px-3 py-1 rounded-full  text-sm hover:bg-red-700 transition-colors">Səbətə at</button>
